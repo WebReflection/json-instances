@@ -1,6 +1,6 @@
 {
   "name": "json-instances",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A minimalistic yet efficient way to stringify and revive instances via JSON",
   "main": "./cjs/index.js",
   "scripts": {
