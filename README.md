@@ -6,6 +6,8 @@
 
 A minimalistic yet efficient way to stringify and revive instances via JSON.
 
+If stringified instances have a `fromJSON() {}` method in their prototypal chain, such method will be invoked once the instance gets revived.
+
 ```js
 import JSONInstances from 'json-instances';
 
