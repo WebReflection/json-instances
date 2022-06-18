@@ -34,3 +34,5 @@ console.assert(revived.revived === true);
 revived = JSON.parse(JSON.stringify(new OtherThing, replacer), reviver);
 console.assert(revived instanceof OtherThing);
 console.assert(revived.revived === true);
+
+require('./namespace.js');
