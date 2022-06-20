@@ -50,6 +50,15 @@ console.log(after);
 // [ MyThing { some: 'cool!' }, OtherThing { revived: true } ]
 ```
 
+## How does it work
+
+This module provides both a [replacer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#the_replacer_parameter) and a [reviver](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#using_the_reviver_parameter) callback able to convert *every **known** class* passed during initialization, either as *array* or [as namespace](https://github.com/WebReflection/json-instances#namespace-based).
+
+This means that if the structure you are trying to stringify includes *unknown instances* that are not plain objects or not known upfront when these callbacks are created, the resulting serialization and deserialization will not work as expected.
+
+Please be sure all classes meant to be revived are passed along and don't be surprised if errors happen when this is not the case.
+
+
 ## Hackable
 
 Because constructors are not serialied, just referenced as index of an array, it is possible to use same ordered amount of classes in multiple workers, as well as different client/server classes, as long as the index well represents the purpose of the data/class associated with it.

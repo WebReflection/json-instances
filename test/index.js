@@ -43,7 +43,12 @@ class Inner {
     this.$ = $;
     this._ = {};
   }
+  toJSON() {
+    return {a: this.$, b: this._};
+  }
 }
 
 ({replacer, reviver} = JSONInstances(Inner));
-console.assert(JSON.stringify([{}, new Inner('test'), {}], replacer) === '[{"i":-1,"o":[]},{"i":0,"o":[["$","test"],["_",{"i":-1,"o":[]}]]},{"i":-1,"o":[]}]');
+const transformed = JSON.stringify([{}, new Inner('test'), {}], replacer);
+console.assert(transformed === '[{"i":-1,"o":[]},{"i":-1,"o":[["a","test"],["b",{"i":-1,"o":[]}]]},{"i":-1,"o":[]}]');
+console.assert(JSON.stringify(JSON.parse(transformed, reviver)[1]) === '{"a":"test","b":{}}');
