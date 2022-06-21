@@ -98,7 +98,7 @@ response.write(comp.toString());
 
 By default this module accepts a list of classes because referring to these as indexes makes the *JSON* outcome extremely compact.
 
-However, there might be a preference around a *namespace* able to make the outcome more readable, and this is usable via the `json-instances/namespace` deicate exports, sharing also 99% of the code with the array based version.
+However, there might be a preference around a *namespace* able to make the outcome more readable, and this is usable via the `json-instances/namespace` dedicated export, sharing also 99% of the code with the array based version.
 
 ```js
 import JSONInstances from 'json-instances/namespace';
